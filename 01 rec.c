@@ -1,3 +1,6 @@
+/* Program to input coordinates of a diagonal of a rectangle and print the remaining coordinates and area of the
+rectangle */
+
 #include<stdio.h>
 #include<stdlib.h>
 #define recarea(x,y) (x)*(y)
