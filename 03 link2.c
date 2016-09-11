@@ -1,3 +1,6 @@
+/* Input a linked list and use the entered data to create and print another linked list  */
+/* Case conversion implemented */
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>

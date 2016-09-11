@@ -1,3 +1,6 @@
+/* Sixteen nodes connected and directed towards each other using pointers */
+/* Enter a node ID and print which nodes could be reached by that node */
+
 #include<stdio.h>
 #include<stdlib.h>
 

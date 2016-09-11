@@ -1,3 +1,5 @@
+/* Creating a linked list and printing and searching in the linked list */
+
 #include<stdio.h>
 #include<stdlib.h>		/* malloc definition */
 #include<string.h>
