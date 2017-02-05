@@ -1,3 +1,5 @@
+/* Create a two dimensional array and print the elements spiralling inside */
+
 #include<stdio.h>
 
 void main ()

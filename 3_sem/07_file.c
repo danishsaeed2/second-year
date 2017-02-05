@@ -1,3 +1,5 @@
+/* Operate on a linked list taking commands from a file */
+
 #include<stdio.h>
 #include<stdlib.h>
 

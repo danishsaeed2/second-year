@@ -1,3 +1,5 @@
+/* Create two linked lists and merge them together */
+
 #include<stdio.h>
 #include<stdlib.h>
 
