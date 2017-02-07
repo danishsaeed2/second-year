@@ -76,6 +76,8 @@ int main()
 					}
 					else if (c2==4)
 					{break;}
+					else if (c2==0)
+					{return 1;}
 					else
 					{continue;}
 				}
@@ -124,6 +126,8 @@ int main()
 					}
 					else if (c2==4)
 					{break;}
+					else if (c2==0)
+					{return 1;}
 					else
 					{continue;}
 				}
@@ -167,12 +171,14 @@ void display (struct node *tempf, int t)
 {
 	int k=0;
 	struct node *currf=NULL;
+	cout<<"--- ";
 	while (k<t)
 	{
 		cout<<tempf->data<<" ";
 		tempf=tempf->next;
 		k++;
 	}
+	cout<<"---";
 }
 
 struct node *addelement (struct node *firstf)
@@ -216,7 +222,6 @@ struct node *addelement (struct node *firstf)
 		total=total+1;
 	}
 	return firstf;
-	
 }
 
 struct node *deleteelement (struct node *firstf)
@@ -226,7 +231,7 @@ struct node *deleteelement (struct node *firstf)
 	struct node *currf=NULL;
 	struct node *tempf1=NULL;
 	tempf=firstf;
-	cout<<"Delete element at position: ";
+	cout<<"# Delete element at position: ";
 	cin>>p;
 	if (p>total||p<1)
 	{
