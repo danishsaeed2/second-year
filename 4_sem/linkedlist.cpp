@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-void display(struct node *);
+void display(struct node *, int);
 int addelement(struct node *, int);
 int deleteelement(struct node *, int);
 int menu1();
@@ -25,7 +25,7 @@ int main()
 	{
 		while (1)
 		{
-			cout<<"Create a linked list"<<endl
+			cout<<"\nCreate a linked list"<<endl
 				<<"1. Linear Linked List"<<endl
 				<<"2. Circular Linked List"<<endl
 				<<"3. Exit Menu"<<endl<<endl;
@@ -62,7 +62,7 @@ int main()
 					c2=menu1();
 					if (c2==1)
 					{
-						display(firstnode);
+						display(firstnode,total);
 					}
 					else if (c2==2)
 					{
@@ -110,7 +110,7 @@ int main()
 					c2=menu1();
 					if (c2==1)
 					{
-						display(firstnode);
+						display(firstnode,total);
 					}
 					else if (c2==2)
 					{
@@ -134,7 +134,7 @@ int main()
 			{continue;}
 		}
 		
-		cout<<"\nDo you want to create another linked list? ";
+		cout<<"\nCreate new linked list (y) | Exit (n) : ";
 		cin>>cmain;
 	}
 	while (cmain=='Y'||cmain=='y');
@@ -156,13 +156,15 @@ int menu1()
 	return x;
 }
 
-void display (struct node *tempf)
+void display (struct node *tempf, int t)
 {
+	int k=0;
 	struct node *currf=NULL;
-	while (tempf!=NULL)
+	while (k<t)
 	{
 		cout<<tempf->data<<" ";
 		tempf=tempf->next;
+		k++;
 	}
 }
 
@@ -171,25 +173,33 @@ int addelement (struct node *tempf, int t)
 	int p,j=0;
 	struct node *currf=NULL;
 	struct node *tempf1=NULL;
-	cout<<"\nEnter new element\n";
+	cout<<"Enter new element\n";
 	cout<<"Enter at which position: ";
-
 	cin>>p;
-	j=0;
-	while (j<p-2)
+	if (p>t+1||p<1)
 	{
-		tempf=tempf->next;
-		j++;
+		cout<<"\nError: Can't add at the entered position.";
+		cout<<"\nTry Again.\n";
 	}
-	tempf1=tempf->next;
-	currf=new node;
-	tempf->next=currf;
-	currf->next=tempf1;
+	else
+	{
+		j=0;
+		while (j<p-2)
+		{
+			tempf=tempf->next;
+			j++;
+		}
+		tempf1=tempf->next;
+		currf=new node;
+		tempf->next=currf;
+		currf->next=tempf1;
 	
-	cout<<"\nEnter new data: ";
-	cin>>currf->data;
-	t=t+1;
+		cout<<"\nEnter new data: ";
+		cin>>currf->data;
+		t=t+1;
+	}
 	return t;
+	
 }
 
 int deleteelement (struct node *tempf, int t)
@@ -197,19 +207,26 @@ int deleteelement (struct node *tempf, int t)
 	int p,j=0;
 	struct node *currf=NULL;
 	struct node *tempf1=NULL;
-	cout<<"\nDelete element\n";
+	cout<<"Delete element\n";
 	cout<<"Which position: ";
 	cin>>p;
-
-	j=0;
-	while (j<p-2)
+	if (p>t||p<1)
 	{
-		tempf=tempf->next;
-		j++;
+		cout<<"\nError: Node not found at entered location.";
+		cout<<"\nTry Again.\n";
 	}
-	tempf1=tempf->next;
-	tempf->next=tempf1->next;
-	delete tempf1;
-	t=t-1;
+	else
+	{
+		j=0;
+		while (j<p-2)
+		{
+			tempf=tempf->next;
+			j++;
+		}
+		tempf1=tempf->next;
+		tempf->next=tempf1->next;
+		delete tempf1;
+		t=t-1;
+	}
 	return t;
 }
