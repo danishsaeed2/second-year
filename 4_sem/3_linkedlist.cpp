@@ -25,15 +25,16 @@ int main()
 	{
 		while (1)
 		{
-			cout<<"\nCreate a linked list"<<endl
-				<<"1. Linear Linked List"<<endl
-				<<"2. Circular Linked List"<<endl
-				<<"3. Exit Menu"<<endl<<endl;
+			cout<<"\n# Create a linked list"<<endl
+				<<"  1 Linear Linked List"<<endl
+				<<"  2 Circular Linked List"<<endl
+				<<"  3 Exit Menu"<<endl<<endl;
+			cout<<"$ ";
 			cin>>c1;
 			
 			if (c1==1)
 			{
-				cout<<"\nCreate a linear linked list:\n\n";
+				cout<<"\n# Create a linear linked list:\n\n";
 				do
 				{
 					curr=new node;
@@ -81,7 +82,7 @@ int main()
 			
 			else if (c1==2)
 			{
-				cout<<"\nCreate a circular linked list:\n\n";
+				cout<<"\n# Create a circular linked list:\n\n";
 				do
 				{
 					curr=new node;
@@ -134,7 +135,7 @@ int main()
 			{continue;}
 		}
 		
-		cout<<"\nCreate new linked list (y) | Exit (n) : ";
+		cout<<"\n# Create new linked list (y) | Exit (n): ";
 		cin>>cmain;
 	}
 	while (cmain=='Y'||cmain=='y');
@@ -146,11 +147,12 @@ int main()
 int menu1()
 {	
 	int x;
-	cout<<"\n\nSelect operation:"<<endl
-		<<"1. Display Linked List"<<endl
-		<<"2. Add element"<<endl
-		<<"3. Delete element"<<endl
-		<<"4. Exit Menu"<<endl<<endl;
+	cout<<"\n\n# Select operation:"<<endl
+		<<"  1 Display Linked List"<<endl
+		<<"  2 Add element"<<endl
+		<<"  3 Delete element"<<endl
+		<<"  4 Exit Menu"<<endl<<endl;
+	cout<<"$ ";
 	cin>>x;
 	cout<<endl;
 	return x;
@@ -173,13 +175,22 @@ int addelement (struct node *tempf, int t)
 	int p,j=0;
 	struct node *currf=NULL;
 	struct node *tempf1=NULL;
-	cout<<"Enter new element\n";
-	cout<<"Enter at which position: ";
+	cout<<"# Enter element at position: ";
 	cin>>p;
 	if (p>t+1||p<1)
 	{
-		cout<<"\nError: Can't add at the entered position.";
-		cout<<"\nTry Again.\n";
+		cout<<"\n# ERROR: Can't add at the entered position.";
+		cout<<"\n# Try Again.\n";
+	}
+	else if (p==1)
+	{
+		cout<<"\n# ERROR: Feature not added yet.\n";
+	//	currf=new node;
+	//	currf->next=tempf;
+	//	currf=tempf;
+	//	cout<<"\nEnter new data: ";
+	//	cin>>currf->data;
+	//	t=t+1;
 	}
 	else
 	{
@@ -207,13 +218,20 @@ int deleteelement (struct node *tempf, int t)
 	int p,j=0;
 	struct node *currf=NULL;
 	struct node *tempf1=NULL;
-	cout<<"Delete element\n";
-	cout<<"Which position: ";
+	cout<<"Delete element at position: ";
 	cin>>p;
 	if (p>t||p<1)
 	{
-		cout<<"\nError: Node not found at entered location.";
-		cout<<"\nTry Again.\n";
+		cout<<"\n# ERROR: Node not found at entered location.";
+		cout<<"\n# Try Again.\n";
+	}
+	else if (p==1)
+	{
+		cout<<"\n# ERROR: Feature not added yet.\n";
+	//	tempf1=tempf;
+	//	tempf=tempf->next;
+	//	delete tempf1;
+	//	t=t-1;
 	}
 	else
 	{
