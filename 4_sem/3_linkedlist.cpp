@@ -2,9 +2,10 @@
 using namespace std;
 
 void display(struct node *, int);
-int addelement(struct node *, int);
-int deleteelement(struct node *, int);
+struct node *addelement(struct node *);
+struct node *deleteelement(struct node *);
 int menu1();
+int total=0;
 
 struct node
 {
@@ -15,7 +16,7 @@ struct node
 int main()
 {
 	char cmain,c;
-	int total=0,n,i=0,c1=0,c2=0;
+	int n,i=0,c1=0,c2=0;
 	struct node *curr=NULL;
 	struct node *temp=NULL;
 	struct node *firstnode=NULL;
@@ -67,11 +68,11 @@ int main()
 					}
 					else if (c2==2)
 					{
-						total=addelement(firstnode,total);
+						firstnode=addelement(firstnode);
 					}
 					else if (c2==3)
 					{
-						total=deleteelement(firstnode,total);
+						firstnode=deleteelement(firstnode);
 					}
 					else if (c2==4)
 					{break;}
@@ -115,11 +116,11 @@ int main()
 					}
 					else if (c2==2)
 					{
-						total=addelement(firstnode,total);
+						firstnode=addelement(firstnode);
 					}
 					else if (c2==3)
 					{
-						total=deleteelement(firstnode,total);
+						firstnode=deleteelement(firstnode);
 					}
 					else if (c2==4)
 					{break;}
@@ -137,6 +138,10 @@ int main()
 		
 		cout<<"\n# Create new linked list (y) | Exit (n): ";
 		cin>>cmain;
+		if (cmain=='y'||cmain=='Y')
+		{
+			total=0;
+		}
 	}
 	while (cmain=='Y'||cmain=='y');
 	
@@ -170,27 +175,28 @@ void display (struct node *tempf, int t)
 	}
 }
 
-int addelement (struct node *tempf, int t)
+struct node *addelement (struct node *firstf)
 {
 	int p,j=0;
+	struct node *tempf=NULL;
 	struct node *currf=NULL;
 	struct node *tempf1=NULL;
+	tempf=firstf;
 	cout<<"# Enter element at position: ";
 	cin>>p;
-	if (p>t+1||p<1)
+	if (p>total+1||p<1)
 	{
 		cout<<"\n# ERROR: Can't add at the entered position.";
 		cout<<"\n# Try Again.\n";
 	}
 	else if (p==1)
 	{
-		cout<<"\n# ERROR: Feature not added yet.\n";
-	//	currf=new node;
-	//	currf->next=tempf;
-	//	currf=tempf;
-	//	cout<<"\nEnter new data: ";
-	//	cin>>currf->data;
-	//	t=t+1;
+		currf=new node;
+		currf->next=tempf;
+		firstf=currf;
+		cout<<"\nEnter new data: ";
+		cin>>currf->data;
+		total=total+1;
 	}
 	else
 	{
@@ -207,31 +213,31 @@ int addelement (struct node *tempf, int t)
 	
 		cout<<"\nEnter new data: ";
 		cin>>currf->data;
-		t=t+1;
+		total=total+1;
 	}
-	return t;
+	return firstf;
 	
 }
 
-int deleteelement (struct node *tempf, int t)
+struct node *deleteelement (struct node *firstf)
 {
 	int p,j=0;
+	struct node *tempf=NULL;
 	struct node *currf=NULL;
 	struct node *tempf1=NULL;
+	tempf=firstf;
 	cout<<"Delete element at position: ";
 	cin>>p;
-	if (p>t||p<1)
+	if (p>total||p<1)
 	{
 		cout<<"\n# ERROR: Node not found at entered location.";
 		cout<<"\n# Try Again.\n";
 	}
 	else if (p==1)
 	{
-		cout<<"\n# ERROR: Feature not added yet.\n";
-	//	tempf1=tempf;
-	//	tempf=tempf->next;
-	//	delete tempf1;
-	//	t=t-1;
+		firstf=firstf->next;
+		delete tempf;
+		total=total-1;
 	}
 	else
 	{
@@ -244,7 +250,7 @@ int deleteelement (struct node *tempf, int t)
 		tempf1=tempf->next;
 		tempf->next=tempf1->next;
 		delete tempf1;
-		t=t-1;
+		total=total-1;
 	}
-	return t;
+	return firstf;
 }
