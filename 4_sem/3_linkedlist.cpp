@@ -1,3 +1,4 @@
+// Linear and circular linked list. Addition and deletion of nodes.
 #include<iostream>
 using namespace std;
 
@@ -77,7 +78,8 @@ int main()
 					else if (c2==4)
 					{break;}
 					else if (c2==0)
-					{return 1;}
+					{cout<<"PROGRAM TERMINATED\n\n";
+					return 1;}
 					else
 					{continue;}
 				}
@@ -127,7 +129,8 @@ int main()
 					else if (c2==4)
 					{break;}
 					else if (c2==0)
-					{return 1;}
+					{cout<<"PROGRAM TERMINATED\n\n";
+					return 1;}
 					else
 					{continue;}
 				}
@@ -135,7 +138,9 @@ int main()
 			
 			else if (c1==3)
 			{break;}
-			
+			else if (c1==0)
+			{	cout<<"\nPROGRAM TERMINATED\n\n";
+				return 1;}	
 			else
 			{continue;}
 		}
@@ -171,6 +176,7 @@ void display (struct node *tempf, int t)
 {
 	int k=0;
 	struct node *currf=NULL;
+	cout<<"Nodes: "<<total<<endl;
 	cout<<"--- ";
 	while (k<t)
 	{

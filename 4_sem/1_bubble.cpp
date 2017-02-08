@@ -1,4 +1,4 @@
-/* Implement bubble sort on array and find numer of swaps and comparisions */
+// Implement bubble sort on array and find numer of swaps and comparisions
 
 #include <iostream>
 #include <cstdlib>
