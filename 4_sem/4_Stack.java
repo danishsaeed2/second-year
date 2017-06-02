@@ -1,7 +1,7 @@
 import java.util.*;
 import java.util.Scanner;
 
-public class infixpost
+public class Stack
 {
 	int size;
 	char[] array;
