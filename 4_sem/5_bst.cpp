@@ -62,7 +62,7 @@ void bst::insert(struct node *tree,struct node *newn)
         }
         else
         {
-        	tree->right = newn;
+        	tree->right=newn;
         	(tree->right)->left=NULL;
         	(tree->right)->right=NULL;
         	return;
