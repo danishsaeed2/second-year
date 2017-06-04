@@ -1,3 +1,6 @@
+// Hash table implementation using java
+// Rename file to main class name
+
 import java.util.Scanner;
 
 class hashentry
